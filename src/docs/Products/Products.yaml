@@ -1,0 +1,102 @@
+openapi: 3.0.0
+info:
+  title: PS5 STORE PRODUCTS
+  version: 1.0.0
+paths:
+  /api/products:
+    get:
+      summary: Obtiene todos los productos.
+      responses:
+        '200':
+          description: Lista de productos exitosamente obtenida.
+    post:
+      summary: Crea un nuevo producto.
+      requestBody:
+        description: Datos del producto a crear.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                thumbnail:
+                  type: string
+                code:
+                  type: string
+                stock:
+                  type: integer
+                category:
+                  type: string
+      responses:
+        '201':
+          description: Producto creado exitosamente.
+
+  /api/products/{id}:
+    get:
+      summary: Obtiene un producto por ID.
+      parameters:
+        - name: id
+          in: path
+          description: ID del producto a obtener.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Producto obtenido exitosamente.
+        '404':
+          description: Producto no encontrado.
+    put:
+      summary: Actualiza un producto por ID.
+      parameters:
+        - name: id
+          in: path
+          description: ID del producto a actualizar.
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Datos del producto a actualizar.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                price:
+                  type: number
+                thumbnail:
+                  type: string
+                code:
+                  type: string
+                stock:
+                  type: integer
+                category:
+                  type: string
+      responses:
+        '200':
+          description: Producto actualizado exitosamente.
+        '404':
+          description: Producto no encontrado.
+    delete:
+      summary: Elimina un producto por ID.
+      parameters:
+        - name: id
+          in: path
+          description: ID del producto a eliminar.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Producto eliminado exitosamente.
+        '404':
+          description: Producto no encontrado.

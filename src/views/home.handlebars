@@ -1,0 +1,21 @@
+
+  <nav>
+    <div class='dashboard-container'>
+     
+       <img src="https://res.cloudinary.com/abrahama19/image/upload/v1688144787/playstation-store-1000x600_chbab7.jpg" width="333" height="200"/>
+      {{#if session}}
+        <p class='welcome-message'>Bienvenid@, {{session.firstName}}</p>
+        <button id='logout-btn' type='submit' class='btn btn-primary'>Logout</button>
+        <button class='btn btn-primary' onclick="location.href='/products'">Ir a productos</button>
+      {{else}}
+        <p class='guest-message'>Bienvenid@ a PS5 Store</p>
+        <a href='/?login=true' class='btn btn-primary'>INICIAR SESIÓN</a>
+        <a href='/?register=true' class='btn btn-primary'>REGISTRO</a>
+      {{/if}}
+    </div>
+  </nav>
+<section>  
+
+</section>
+<script src='/js/profile.js'></script>
+<script src='/js/home.js'></script>

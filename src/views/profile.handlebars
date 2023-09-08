@@ -1,0 +1,28 @@
+<nav class='navbar fixed-top navbar-expand-lg navbar-dark bg-info'>
+  <a onclick="location.href='/products'">
+    <img src='https://res.cloudinary.com/abrahama19/image/upload/v1691861389/logoPS5_ryhtjh.jpg' alt='logo' width='200px' style='margin-left: 1.4rem;' />
+  </a>
+  <p class='navbar__title'>Bienvenid@, {{firstName}}</p>
+  <div>
+    <button class='btn btn-primary' onclick="location.href='/products'"><span class='icon'>
+       </span><span>Seguir comprando</span>
+    </button>
+  </div>
+  <div>
+    <button id='logout-btn' class='btn btn-primary'>
+      <span class='icon'></span>
+      <span>Salir</span>
+    </button>
+  </div>
+</nav>
+<div class='dashboard-container'>
+  <h2 class='profile-title'>Mi perfil</h2>
+  <div class='profile-details'>
+    <div>
+      <p>Email: {{email}}</p>
+      <p>Nombre completo: {{firstName}} {{lastName}}</p>
+      <p>Rol: {{role}}</p>
+      <h6>Edad: {{age}}</h6>
+    </div>
+  </div>
+</div>

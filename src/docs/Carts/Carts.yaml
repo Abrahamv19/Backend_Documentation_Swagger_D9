@@ -1,0 +1,166 @@
+openapi: 3.0.0
+info:
+  title: PS5 STORE CARTS
+  version: 1.0.0
+paths:
+  /api/carts:
+    post:
+      summary: Crea un nuevo carrito.
+      responses:
+        '201':
+          description: Carrito creado exitosamente.
+    # get:
+    #   summary: Obtiene todos los carritos.
+    #   responses:
+    #     '200':
+    #       description: Lista de carritos exitosamente obtenida.
+  /api/carts/{cid}:
+    get:
+      summary: Obtiene un carrito por ID.
+      parameters:
+        - name: cid
+          in: path
+          description: ID del carrito a obtener.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Carrito obtenido exitosamente.
+        '404':
+          description: Carrito no encontrado.
+    # put:
+    #   summary: Actualiza un carrito por ID.
+    #   parameters:
+    #     - name: cid
+    #       in: path
+    #       description: ID del carrito a actualizar.
+    #       required: true
+    #       schema:
+    #         type: string
+            
+    #   responses:
+    #     '200':
+    #       description: Carrito actualizado exitosamente.
+    #     '404':
+    #       description: Carrito no encontrado.
+    # delete:
+    #   summary: Elimina un carrito por ID.
+    #   parameters:
+    #     - name: cid
+    #       in: path
+    #       description: ID del carrito a eliminar.
+    #       required: true
+    #       schema:
+    #         type: string
+    #   responses:
+    #     '204':
+    #       description: Carrito eliminado exitosamente.
+    #     '404':
+    #       description: Carrito no encontrado.
+  /api/carts/{cid}/product/{pid}:
+    post:
+      summary: Agrega un producto a un carrito por ID.
+      parameters:
+        - name: cid
+          in: path
+          description: ID del carrito al que se agregará el producto.
+          required: true
+          schema:
+            type: string
+        - name: pid
+          in: path
+          description: ID del producto a agregar al carrito.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Producto agregado exitosamente al carrito.
+        '404':
+          description: Carrito o producto no encontrado.
+
+  /api/carts/delete/{cid}/product/{pid}:
+    delete:
+      summary: Elimina un producto de un carrito por ID.
+      parameters:
+        - name: cid
+          in: path
+          description: ID del carrito del que se eliminará el producto.
+          required: true
+          schema:
+            type: string
+        - name: pid
+          in: path
+          description: ID del producto a eliminar del carrito.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Producto eliminado exitosamente del carrito.
+        '404':
+          description: Carrito o producto no encontrado.
+  # /api/carts/{cid}/empty:
+  #   delete:
+  #     summary: Vacía un carrito por ID.
+  #     parameters:
+  #       - name: cid
+  #         in: path
+  #         description: ID del carrito a vaciar.
+  #         required: true
+  #         schema:
+  #           type: integer
+  #           format: int64
+  #     responses:
+  #       '204':
+  #         description: Carrito vaciado exitosamente.
+  #       '404':
+  #         description: Carrito no encontrado.
+  # /api/carts/{cid}/purchase:
+  #   get:
+  #     summary: Realiza el proceso de compra de un carrito por ID.
+  #     parameters:
+  #       - name: cid
+  #         in: path
+  #         description: ID del carrito a comprar.
+  #         required: true
+  #         schema:
+  #           type: integer
+  #           format: int64
+  #     responses:
+  #       '200':
+  #         description: Proceso de compra exitoso.
+  #       '404':
+  #         description: Carrito no encontrado.
+  #   post:
+  #     summary: Agrega un ticket de compra para un carrito por ID.
+  #     parameters:
+  #       - name: cid
+  #         in: path
+  #         description: ID del carrito al que se agregará el ticket de compra.
+  #         required: true
+  #         schema:
+  #           type: integer
+  #           format: int64
+  #     responses:
+  #       '200':
+  #         description: Ticket de compra agregado exitosamente al carrito.
+  #       '404':
+  #         description: Carrito no encontrado.
+  # /api/carts/purchase/{cid}:
+  #   get:
+  #     summary: Obtiene un ticket de compra por ID de carrito.
+  #     parameters:
+  #       - name: cid
+  #         in: path
+  #         description: ID del carrito del que se obtendrá el ticket de compra.
+  #         required: true
+  #         schema:
+  #           type: integer
+  #           format: int64
+  #     responses:
+  #       '200':
+  #         description: Ticket de compra obtenido exitosamente.
+  #       '404':
+  #         description: Ticket de compra o carrito no encontrado.
